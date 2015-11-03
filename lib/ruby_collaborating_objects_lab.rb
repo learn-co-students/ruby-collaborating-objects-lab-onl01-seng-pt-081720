@@ -8,7 +8,7 @@ class Song
 
   def self.new_by_filename(filename)
     artist, song = filename.split(" - ")
-    Song.new(artist, song)
+    self.new(artist, song)
   end
 
   def artist_name=(name)
@@ -19,6 +19,7 @@ end
 
 
 class Artist
+  @@all = []
   attr_accessor :name, :songs
 
   def initialize(name)
@@ -31,8 +32,23 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    Artist.new()
+    self.find(name) ?  self.find(name) : self.create(name)
+  end
+
+  def self.find(name)
+    @@all.find {|artist| artist.name == name }
+  end
+
+
+  def self.create(name)
+    self.new(name).save
+  end
+
+  def save
+    @@all << self
   end
 end
 
 Song.new_by_filename("Action Bronson - Some Song - rap.mp3")
+Artist.create("Michael")
+Artist.find_or_create_by_name("Mic")
