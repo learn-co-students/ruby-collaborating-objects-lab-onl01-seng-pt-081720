@@ -48,7 +48,3 @@ class Artist
     @@all << self
   end
 end
-
-Song.new_by_filename("Action Bronson - Some Song - rap.mp3")
-Artist.create("Michael")
-Artist.find_or_create_by_name("Mic")
