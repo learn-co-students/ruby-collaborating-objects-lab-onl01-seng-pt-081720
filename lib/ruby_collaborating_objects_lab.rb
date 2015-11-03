@@ -1,19 +1,22 @@
+require 'pry'
 class Song
-  attr_accessor :artist, :song
+  attr_accessor :name, :artist
 
-  def initialize(artist, song)
-    @artist = artist
-    @song = song
+  def initialize(name)
+    @name = name
   end
 
   def self.new_by_filename(filename)
     artist, song = filename.split(" - ")
-    self.new(artist, song)
+    new_song = self.new(song)
+    new_song.artist_name = artist
+    new_song
   end
 
   def artist_name=(name)
     artist = Artist.find_or_create_by_name(name)
     artist.add_song(self)
+    self.artist = artist
   end
 end
 
@@ -27,12 +30,16 @@ class Artist
     @songs = []
   end
 
+  def self.all
+    @@all    
+  end
+
   def add_song(song)
     @songs << song
   end
 
   def self.find_or_create_by_name(name)
-    self.find(name) ?  self.find(name) : self.create(name)
+    self.find(name) ? self.find(name) : self.create(name)
   end
 
   def self.find(name)
@@ -41,7 +48,7 @@ class Artist
 
 
   def self.create(name)
-    self.new(name).save
+    self.new(name).tap {|artist| artist.save}
   end
 
   def save
