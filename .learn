@@ -1,5 +1,8 @@
 tags:
-  - tag1
+  - oop
+  - belongs to
+  - has many
+  - collaborating objects
 languages:
-  - language1
+  - ruby
 resources: 0
