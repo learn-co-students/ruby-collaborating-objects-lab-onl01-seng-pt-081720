@@ -16,9 +16,11 @@ describe 'Artist' do
 
   describe '#songs' do 
     it 'keeps track of an artist\'s songs' do 
-      artist.add_song('Rock With You')
-      artist.add_song('Smooth Criminal')
-      expect(artist.songs).to eq(["Rock With You", "Smooth Criminal"])
+      song_one = Song.new("Rock With You")
+      song_two = Song.new("Smooth Criminal")
+      artist.add_song(song_one)
+      artist.add_song(song_two)
+      expect(artist.songs).to eq([song_one, song_two])
     end
   end
 
@@ -43,11 +45,12 @@ describe 'Artist' do
   end
 
   describe '#print_songs' do 
-    it 'lists all of the artist\'s songs' do 
-      artist.add_song('Dirty Diana')
-      artist.add_song('Billie Jean')
-      artist.add_song('Beat it')
-      expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\nBeat it\n").to_stdout
+    it 'lists all of the artist\'s songs' do
+      dirty_diana = Song.new("Dirty Diana") 
+      billie_jean = Song.new("Billie Jean")
+      artist.add_song(dirty_diana)
+      artist.add_song(billie_jean)
+      expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
     end
   end
 end
