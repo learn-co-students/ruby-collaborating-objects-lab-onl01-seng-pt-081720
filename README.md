@@ -9,7 +9,7 @@
 
 This is a test-driven lab. Use the test file and test output to understand what is being asked of you as you follow the guidelines below. 
 
-In this lab, we'll be dealing with an `Artist` class, a `Song` class, and an `Mp3Importer` class. 
+In this lab, we'll be dealing with an `Artist` class, a `Song` class, and an `MP3Importer` class. 
 
 Because of the relationships between your classes, the `Artist` tests, i.e. the tests in `spec/artist_spec.rb`, rely on some code in the `Song` class and vice versa. So, as you proceed through solving this lab, you will go back and forth between coding in `Artist` and `Song`.
 
@@ -17,7 +17,7 @@ We recommend starting out by getting some of the initial `Artist` tests passing 
 
 ## Overview
 
-You will be building an `Artist` class, a `Song` class, and an `Mp3Importer` class. At the top level, you can think about what we'll be doing in 3 steps:
+You will be building an `Artist` class, a `Song` class, and an `MP3Importer` class. At the top level, you can think about what we'll be doing in 3 steps:
 
 1. The MP3 Importer will parse all the filenames in the `lib/mp3s` folder and send the filenames to the Song class
 2. The Song class will be responsible for creating songs given each filename and sending the artist's name (a string) to the Artist class
@@ -25,10 +25,10 @@ You will be building an `Artist` class, a `Song` class, and an `Mp3Importer` cla
 
 Thinking about it this way will get us started. Let's take a deeper look.
 
-###`Mp3Importer` class
-Let's start with the Mp3 Importer. Build an `Mp3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `Mp3Importer#files` and `Mp3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization. 
+###`MP3Importer` class
+Let's start with the MP3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `Mp3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization. 
 
-You should write code that responds to `Mp3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
+You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
 
 Since we have to send the filenames to the `Song` class, we'll end up calling the following code in the `#import` method: `Song.new_by_filename(filename-goes-here)`. This will send us to the `Song` class, specifically `Song#new_by_filename`.
 
@@ -36,7 +36,7 @@ Since we have to send the filenames to the `Song` class, we'll end up calling th
 #### `Song#new_by_filename`
 This method will do three things:
 
-1. It must parse a filename to find the song name and artist name. (*Hint: every file is separates the song and artist with a `" - "`*). Now we put those values to use.
+1. It must parse a filename to find the song name and artist name. (*Hint: every file separates the song and artist with a `" - "`*). Now we put those values to use.
 
 2. From here, we will create a new song instance using the string we gathered from the filename.
 
@@ -73,3 +73,5 @@ This instance method exists to tell the artist about its songs. Simply take the 
 ###Conclusion
 
 These are just a few hints and guidelines to help you through this lab. Rely on the guides here, refer to the previous Code Along on object relations, and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. Good luck!
+
+<a href='https://learn.co/lessons/ruby-collaborating-objects-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
