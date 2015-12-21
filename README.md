@@ -36,7 +36,7 @@ Since we have to send the filenames to the `Song` class, we'll end up calling th
 #### `Song#new_by_filename`
 This method will do three things:
 
-1. It must parse a filename to find the song name and artist name. (*Hint: every file is separates the song and artist with a `" - "`*). Now we put those values to use.
+1. It must parse a filename to find the song name and artist name. (*Hint: every file separates the song and artist with a `" - "`*). Now we put those values to use.
 
 2. From here, we will create a new song instance using the string we gathered from the filename.
 
