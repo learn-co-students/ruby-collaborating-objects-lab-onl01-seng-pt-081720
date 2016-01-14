@@ -19,7 +19,7 @@ We recommend starting out by getting some of the initial `Artist` tests passing 
 
 You will be building an `Artist` class, a `Song` class, and an `MP3Importer` class. At the top level, you can think about what we'll be doing in 3 steps:
 
-1. The MP3 Importer will parse all the filenames in the `lib/mp3s` folder and send the filenames to the Song class
+1. The MP3 Importer will parse all the filenames in the `db/mp3s` folder and send the filenames to the Song class
 2. The Song class will be responsible for creating songs given each filename and sending the artist's name (a string) to the Artist class
 3. The Artist class will be responsible for either creating the artist (if the artist doesn't exist in our program yet) or finding the instance of that artist (if the artist does exist).
 
