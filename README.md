@@ -40,14 +40,14 @@ This method will do three things:
 
 2. From here, we will create a new song instance using the string we gathered from the filename.
 
-3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `#artist_name=()`. 
+3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`. 
 
-You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `#artist_name=(name)`.
+You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `Song#artist(artist_name)`.
 
-#### `Song#artist_name=(name)`
+#### `Song#artist=(artist_name)`
 This method will do two things. Both of these things will involve collaboration with the `Artist` class:
 
-1. Turn the artists name as a string into an artist object
+1. Turn the artist's name as a string into an artist object
 
 	First we need to get the instance of the Artist class that represents that artist. There are two possibilities here: 
 	
