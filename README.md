@@ -33,7 +33,7 @@ You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Go
 Since we have to send the filenames to the `Song` class, we'll end up calling the following code in the `#import` method: `Song.new_by_filename(filename-goes-here)`. This will send us to the `Song` class, specifically `Song#new_by_filename`.
 
 ###`Song` class
-#### `Song#new_by_filename`
+#### `Song.new_by_filename`
 This method will do three things:
 
 1. It must parse a filename to find the song name and artist name. (*Hint: every file separates the song and artist with a `" - "`*). Now we put those values to use.
@@ -75,3 +75,5 @@ This instance method exists to tell the artist about its songs. Simply take the 
 These are just a few hints and guidelines to help you through this lab. Rely on the guides here, refer to the previous Code Along on object relations, and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. Good luck!
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab' title='Ruby Collaborating Objects Lab'>Ruby Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
