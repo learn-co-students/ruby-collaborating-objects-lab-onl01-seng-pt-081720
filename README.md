@@ -33,7 +33,7 @@ You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Go
 Since we have to send the filenames to the `Song` class, we'll end up calling the following code in the `#import` method: `Song.new_by_filename(filename-goes-here)`. This will send us to the `Song` class, specifically `Song#new_by_filename`.
 
 ###`Song` class
-#### `Song#new_by_filename`
+#### `Song.new_by_filename`
 This method will do three things:
 
 1. It must parse a filename to find the song name and artist name. (*Hint: every file separates the song and artist with a `" - "`*). Now we put those values to use.
