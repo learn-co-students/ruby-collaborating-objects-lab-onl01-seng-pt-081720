@@ -44,7 +44,7 @@ This method will do three things:
 
 You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `Song#artist(artist_name)`.
 
-#### `Song#artist=(artist_name)`
+#### `Song#artist_name=(name)`
 This method will do two things. Both of these things will involve collaboration with the `Artist` class:
 
 1. Turn the artist's name as a string into an artist object
@@ -75,3 +75,5 @@ This instance method exists to tell the artist about its songs. Simply take the 
 These are just a few hints and guidelines to help you through this lab. Rely on the guides here, refer to the previous Code Along on object relations, and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. Good luck!
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab' title='Ruby Collaborating Objects Lab'>Ruby Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
