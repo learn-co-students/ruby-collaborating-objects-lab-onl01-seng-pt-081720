@@ -34,13 +34,15 @@ Since we have to send the filenames to the `Song` class, we'll end up calling th
 
 ###`Song` class
 #### `Song.new_by_filename`
-This method will do three things:
+This method will do four things:
 
 1. It must parse a filename to find the song name and artist name. (*Hint: every file separates the song and artist with a `" - "`*). Now we put those values to use.
 
 2. From here, we will create a new song instance using the string we gathered from the filename.
 
 3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`.
+
+4. Return the new song instance. 
 
 You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `Song#artist(artist_name)`.
 
@@ -75,3 +77,5 @@ This instance method exists to tell the artist about its songs. Simply take the 
 These are just a few hints and guidelines to help you through this lab. Rely on the guides here, refer to the previous Code Along on object relations, and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. Good luck!
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
