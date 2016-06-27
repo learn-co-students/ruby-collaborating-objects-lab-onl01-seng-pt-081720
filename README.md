@@ -26,7 +26,7 @@ You will be building an `Artist` class, a `Song` class, and an `MP3Importer` cla
 Thinking about it this way will get us started. Let's take a deeper look.
 
 ###`MP3Importer` class
-Let's start with the MP3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `Mp3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization.
+Let's start with the MP3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `MP3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization.
 
 You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
 
