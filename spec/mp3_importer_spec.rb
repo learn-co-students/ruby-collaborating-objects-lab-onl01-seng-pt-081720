@@ -1,8 +1,8 @@
 require 'spec_helper'
 require 'pry'
 
-describe "Mp3Importer" do
-  describe '#intialize' do
+describe "MP3Importer" do
+  describe '#initialize' do
     it 'accepts a file path to parse mp3 files from' do
       test_music_path = "./spec/fixtures/mp3s"
       music_importer = MP3Importer.new(test_music_path)
@@ -38,6 +38,7 @@ describe "Mp3Importer" do
       music_importer.import
 
       expect(Artist.all.size).to eq(3)
+      expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
     end
   end
 end
