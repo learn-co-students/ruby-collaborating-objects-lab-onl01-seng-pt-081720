@@ -20,7 +20,16 @@ describe 'Artist' do
       song_two = Song.new("Smooth Criminal")
       artist.add_song(song_one)
       artist.add_song(song_two)
+      expect(artist)
       expect(artist.songs).to eq([song_one, song_two])
+    end
+    
+    it 'does not store songs as an instance variable' do
+      song_one = Song.new("Rock With You")
+      song_two = Song.new("Smooth Criminal")
+      artist.add_song(song_one)
+      artist.add_song(song_two)
+      expect(artist.instance_variable_get(:@songs)).to eq(nil)
     end
   end
 
