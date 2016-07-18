@@ -16,19 +16,19 @@ describe 'Artist' do
 
   describe '#songs' do
     it 'keeps track of an artist\'s songs' do
-      song_one = Song.new("Rock With You")
-      song_two = Song.new("Smooth Criminal")
-      artist.add_song(song_one)
-      artist.add_song(song_two)
+      song_one = Song.new("Rock With You").save
+      song_two = Song.new("Smooth Criminal").save
+      song_one.artist = artist
+      song_two.artist = artist
       expect(artist)
       expect(artist.songs).to eq([song_one, song_two])
     end
     
     it 'does not store songs as an instance variable' do
-      song_one = Song.new("Rock With You")
-      song_two = Song.new("Smooth Criminal")
-      artist.add_song(song_one)
-      artist.add_song(song_two)
+      song_one = Song.new("Rock With You").save
+      song_two = Song.new("Smooth Criminal").save
+      song_one.artist = artist
+      song_two.artist = artist
       expect(artist.instance_variable_get(:@songs)).to eq(nil)
     end
   end
@@ -55,10 +55,10 @@ describe 'Artist' do
 
   describe '#print_songs' do
     it 'lists all of the artist\'s songs' do
-      dirty_diana = Song.new("Dirty Diana")
-      billie_jean = Song.new("Billie Jean")
-      artist.add_song(dirty_diana)
-      artist.add_song(billie_jean)
+      dirty_diana = Song.new("Dirty Diana").save
+      billie_jean = Song.new("Billie Jean").save
+      dirty_diana.artist = artist
+      billie_jean.artist = artist
       expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
     end
   end
