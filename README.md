@@ -19,20 +19,30 @@ We recommend starting out by getting some of the initial `Artist` tests passing 
 
 You will be building an `Artist` class, a `Song` class, and an `MP3Importer` class. At the top level, you can think about what we'll be doing in 3 steps:
 
-1. The MP3 Importer will parse all the filenames in the `db/mp3s` folder and send the filenames to the Song class
+1. The Artist class will be responsible for either creating the artist (if the artist doesn't exist in our program yet) or finding the instance of that artist (if the artist does exist).
 2. The Song class will be responsible for creating songs given each filename and sending the artist's name (a string) to the Artist class
-3. The Artist class will be responsible for either creating the artist (if the artist doesn't exist in our program yet) or finding the instance of that artist (if the artist does exist).
+3. The MP3 Importer will parse all the filenames in the `db/mp3s` folder and send the filenames to the Song class
 
 Thinking about it this way will get us started. Let's take a deeper look.
 
-###`MP3Importer` class
-Let's start with the MP3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `MP3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization.
-
-You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
-
-Since we have to send the filenames to the `Song` class, we'll end up calling the following code in the `#import` method: `Song.new_by_filename(some_filename)`. This will send us to the `Song` class, specifically `Song.new_by_filename`.
-
 ###`Song` class
+
+Let's start with the song class. 
+
+Note: As you're working through the tests, you may notice that you'll need the Artist class to be working to some extent to pass all the Song class tests. You'll need to jump around and build up both class at the same time. 
+
+#### `Song.all`
+
+The song class should know about all saved songs. The best place to store them is in a class variable `@@all` (you must name it `@@all` for the purpose of the test). The `.all` method should return this array. 
+
+#### `#save`
+
+This method will take a new song and add it to the `@@all` array. We also want to make sure that the return value of this method is equal to the song we just saved. 
+
+#### `Song.find_by_artist`
+
+This method should take one input (an artist object) and return an array of all songs that belong to that artist obejct. 
+
 #### `Song.new_by_filename`
 This method will do four things:
 
@@ -40,13 +50,13 @@ This method will do four things:
 
 2. From here, we will create a new song instance using the string we gathered from the filename.
 
-3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist=(artist_name)`.
+3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`.
 
-4. Return the new song instance. 
+4. Save the new song instance and return it. 
 
-You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `Song#artist=(artist_name)`.
+You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `Song#artist(artist_name)`.
 
-#### `Song#artist_name=(name)`
+#### `#artist_name=(name)`
 This method will do two things. Both of these things will involve collaboration with the `Artist` class:
 
 1. Turn the artist's name as a string into an artist object
@@ -65,12 +75,19 @@ This method will do two things. Both of these things will involve collaboration 
 ###`Artist` class
 It will probably be useful to create a couple of helper methods to assist with the methods below.
 
+#### `#songs`
+
+This method should look through all of the songs and return an array of all of the ones that belong to them. Maybe we have already created a method we can use to do this...
+
 ####`Artist.find_or_create_by_name(name)`
 This class method should take the name that is passed in (remember, it will be a string), and do one of two things. Find the artist instance that has that name or create one if it doesn't exist. Either way, the return value of the method will be an instance of an artist with the name attribute filled out.
 
-####`Artist#add_song(song)`
-This instance method exists to tell the artist about its songs. Simply take the `Song` instance that is passed in as an argument and store it in a `songs` array with all the other songs that belong to the artist.
+###`MP3Importer` class
+Finally, let's build the MP3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `Mp3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization.
 
+You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
+
+Since we have to send the filenames to the `Song` class, we'll end up calling the following code in the `#import` method: `Song.new_by_filename(some_filename)`. This will send us to the `Song` class, specifically `Song.new_by_filename`.
 
 ###Conclusion
 
