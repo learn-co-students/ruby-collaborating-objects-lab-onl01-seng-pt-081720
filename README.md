@@ -29,7 +29,7 @@ Thinking about it this way will get us started. Let's take a deeper look.
 
 Let's start with the song class. 
 
-Note: As you're working through the tests, you may notice that you'll need the Artist class to be working to some extent to pass all the Song class tests. You'll need to jump around and build up both class at the same time. 
+Note: As you're working through the tests, you may notice that you'll need the Artist class to be working to some extent to pass all the Song class tests. You'll need to jump around and build up both classes at the same time. 
 
 #### `Song.all`
 
