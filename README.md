@@ -7,6 +7,8 @@
 
 ## Instructions
 
+Hi Henry!
+
 This is a test-driven lab. Use the test file and test output to understand what is being asked of you as you follow the guidelines below.
 
 In this lab, we'll be dealing with an `Artist` class, a `Song` class, and an `MP3Importer` class.
