@@ -79,3 +79,4 @@ These are just a few hints and guidelines to help you through this lab. Rely on 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
+
