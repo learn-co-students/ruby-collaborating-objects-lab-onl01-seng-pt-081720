@@ -65,16 +65,16 @@ This method will do two things. Both of these things will involve collaboration 
 
     Now that we have the artist instance, we'll want to again collaborate with the `Artist` class by calling on the `Artist#add_song(some_song)` method.
 
-###`Artist` class
+### `Artist` class
 It will probably be useful to create a couple of helper methods to assist with the methods below.
 
-####`Artist.find_or_create_by_name(name)`
+#### `Artist.find_or_create_by_name(name)`
 This class method should take the name that is passed in (remember, it will be a string), and do one of two things. Find the artist instance that has that name or create one if it doesn't exist. Either way, the return value of the method will be an instance of an artist with the name attribute filled out.
 
-####`Artist#add_song(song)`
+#### `Artist#add_song(song)`
 This instance method exists to tell the artist about its songs. Simply take the `Song` instance that is passed in as an argument and store it in a `songs` array with all the other songs that belong to the artist.
 
-###Conclusion
+### Conclusion
 
 These are just a few hints and guidelines to help you through this lab. Rely on the guides here, refer to the previous Code Along on object relations, and **read the test output and test files**. Never forget to ask a question on Learn if you are stuck. Good luck!
 
