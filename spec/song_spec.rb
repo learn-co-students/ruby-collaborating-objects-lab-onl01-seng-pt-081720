@@ -37,4 +37,20 @@ describe 'Song' do
       expect(Artist.all.first.songs.empty?).to eq(false)
     end
   end
+
+  describe '#artist_name=' do
+    it "accepts an artist's name, finds or creates an Artist instance and assigns it to the Song's artist attribute" do
+      Artist.class_variable_set("@@all",[])
+      new_instance = Song.new_by_filename(file_name)
+      new_instance.artist_name = "Michael Jackson"
+      expect(new_instance.artist).to be_an(Artist)
+      expect(new_instance.artist.name).to eq("Michael Jackson")
+
+      song.artist_name = "Michael Jackson"
+      expect(song.artist).to be_an(Artist)
+      expect(song.artist.name).to eq("Michael Jackson")
+
+      expect(Artist.all.length).to eq(1)
+    end
+  end
 end
