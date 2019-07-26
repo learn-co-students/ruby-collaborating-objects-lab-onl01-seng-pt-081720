@@ -14,22 +14,37 @@ describe 'Artist' do
     end
   end
 
+  describe '.all' do
+    it 'returns all existing Artist instances' do
+      expect(Artist.all).to eq([artist])
+      prince = Artist.new('Prince')
+      expect(Artist.all).to eq([artist, prince])
+    end
+  end
+
+  describe `#songs` do
+  it 'lists all songs that belong to this artist' do
+    dirty_diana = Song.new("Dirty Diana")
+    billie_jean = Song.new("Billie Jean")
+    piano_man = Song.new("Piano Man")
+    dirty_diana.artist = artist
+    billie_jean.artist = artist
+    expect(artist.songs).to eq([dirty_diana, billie_jean])
+  end
+end
+
   describe '#add_song' do
     it 'keeps track of an artist\'s songs' do
       song_one = Song.new("Rock With You")
       song_two = Song.new("Smooth Criminal")
+      smells_like_teen_spirit = Song.new("Smells Like Teen Spirit")
       artist.add_song(song_one)
       artist.add_song(song_two)
       expect(artist.songs).to eq([song_one, song_two])
     end
   end
 
-  describe '#save' do
-    it 'adds the artist instance to the @@all class variable' do
-      artist.save
-      expect(Artist.all).to include(artist)
-    end
-  end
+  
 
   describe '.find_or_create_by_name' do
     it 'always returns an Artist instance' do
@@ -55,6 +70,7 @@ describe 'Artist' do
     it 'lists all of the artist\'s songs' do
       dirty_diana = Song.new("Dirty Diana")
       billie_jean = Song.new("Billie Jean")
+      piano_man = Song.new("Piano Man")
       artist.add_song(dirty_diana)
       artist.add_song(billie_jean)
       expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
