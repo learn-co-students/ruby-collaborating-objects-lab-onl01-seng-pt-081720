@@ -1,14 +1,20 @@
 describe 'Artist' do
-  let(:artist) {Artist.new('Michael Jackson')}
+
+  before(:example) {
+    Artist.class_variable_set(:@@all, [])
+  }
+  
 
   describe '#initialize with #name' do
     it 'accepts a name for the artist' do
+      artist = Artist.new('Michael Jackson')
       expect(artist.name).to eq('Michael Jackson')
     end
   end
 
   describe '#name=' do
     it 'sets the artist name' do
+      artist = Artist.new('Michael Jackson')
       artist.name = 'King of Pop'
       expect(artist.name).to eq('King of Pop')
     end
@@ -16,6 +22,7 @@ describe 'Artist' do
 
   describe '.all' do
     it 'returns all existing Artist instances' do
+      artist = Artist.new('Michael Jackson')
       expect(Artist.all).to eq([artist])
       prince = Artist.new('Prince')
       expect(Artist.all).to eq([artist, prince])
@@ -23,18 +30,20 @@ describe 'Artist' do
   end
 
   describe `#songs` do
-  it 'lists all songs that belong to this artist' do
-    dirty_diana = Song.new("Dirty Diana")
-    billie_jean = Song.new("Billie Jean")
-    piano_man = Song.new("Piano Man")
-    dirty_diana.artist = artist
-    billie_jean.artist = artist
-    expect(artist.songs).to eq([dirty_diana, billie_jean])
+    it 'lists all songs that belong to this artist' do
+      artist = Artist.new('Michael Jackson')
+      dirty_diana = Song.new("Dirty Diana")
+      billie_jean = Song.new("Billie Jean")
+      piano_man = Song.new("Piano Man")
+      dirty_diana.artist = artist
+      billie_jean.artist = artist
+      expect(artist.songs).to eq([dirty_diana, billie_jean])
+    end
   end
-end
 
   describe '#add_song' do
     it 'keeps track of an artist\'s songs' do
+      artist = Artist.new('Michael Jackson')
       song_one = Song.new("Rock With You")
       song_two = Song.new("Smooth Criminal")
       smells_like_teen_spirit = Song.new("Smells Like Teen Spirit")
@@ -68,6 +77,7 @@ end
 
   describe '#print_songs' do
     it 'lists all of the artist\'s songs' do
+      artist = Artist.new('Michael Jackson')
       dirty_diana = Song.new("Dirty Diana")
       billie_jean = Song.new("Billie Jean")
       piano_man = Song.new("Piano Man")
