@@ -2,8 +2,8 @@ describe 'Song' do
   let(:song) {Song.new('Man in the Mirror')}
   let(:file_name) {'Michael Jackson - Black or White - pop.mp3'}
 
-  describe '#initialize with #name' do
-    it 'accepts a name for the song' do
+  describe '#initialize with a name' do
+    it 'accepts a name for the song and makes it accessible through an attribute accessor' do
       expect(song.name).to eq('Man in the Mirror')
     end
   end
@@ -20,6 +20,14 @@ describe 'Song' do
       new_artist_object = Artist.new('King of Pop')
       song.artist = new_artist_object
       expect(song.artist).to eq(new_artist_object)
+    end
+  end
+
+  describe '.all' do
+    it 'returns all existing Song instances' do
+      expect(Song.all).to eq([song])
+      purple_rain = Song.new('Purple Rain')
+      expect(Song.all).to eq([song, purple_rain])
     end
   end
 
