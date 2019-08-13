@@ -29,7 +29,7 @@ describe 'Artist' do
     end
   end
 
-  describe `#songs` do
+  describe '#songs' do
     it 'lists all songs that belong to this artist' do
       artist = Artist.new('Michael Jackson')
       dirty_diana = Song.new("Dirty Diana")
