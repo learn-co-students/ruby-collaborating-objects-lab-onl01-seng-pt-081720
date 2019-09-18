@@ -3,7 +3,7 @@ describe 'Artist' do
   before(:example) {
     Artist.class_variable_set(:@@all, [])
   }
-  
+
 
   describe '#initialize with #name' do
     it 'accepts a name for the artist' do
@@ -53,7 +53,7 @@ describe 'Artist' do
     end
   end
 
-  
+
 
   describe '.find_or_create_by_name' do
     it 'always returns an Artist instance' do
