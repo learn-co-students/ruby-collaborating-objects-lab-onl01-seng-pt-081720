@@ -84,7 +84,7 @@ and store all `Song` instances in this variable.
 
 #### `Song.all`
 
-This class method should return all `Artist` instances.
+This class method should return all `Song` instances.
 
 #### `Song.new_by_filename`
 
