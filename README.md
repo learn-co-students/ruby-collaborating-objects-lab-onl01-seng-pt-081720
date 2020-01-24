@@ -160,3 +160,4 @@ the guides here, refer to the previous lessons on object relations, and
 if you are stuck. Good luck!
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/ruby-collaborating-objects-lab'>Collaborating Objects Lab</a> on Learn.co and start learning to code for free.</p>
+
