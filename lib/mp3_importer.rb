@@ -11,9 +11,17 @@ class MP3Importer
         @music_importer
     end
 
+    def import
+        files.each do |x|
+            Song.new_by_filename(x)
+        end
+        
+    end
+
     def files
-        @music_importer
-        binding.pry
+        file = []
+        (Dir.glob("#{path}/*.mp3")).each {|x| file << (x.split("/")[-1])}
+        file
     end
 
 
