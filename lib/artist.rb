@@ -27,7 +27,7 @@ class Artist
   end
   
   def print_songs
-    puts Song.all.collect {|x| x.name == name}
+    puts self.songs.collect {|x| x.name}
   end
   
 
