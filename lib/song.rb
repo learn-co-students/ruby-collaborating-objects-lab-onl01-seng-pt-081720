@@ -19,5 +19,11 @@ end
     self.artist = Artist.find_or_create_by_name(name)
     self.artist.add_song(self)
   end
+  
+  def import 
+    self.files each do |file|
+     song = Song.new_by_filename(file)
+     Artist.all << song.artist unless Artist.all.include?(song.artist)
+    end 
 
 end
