@@ -136,7 +136,7 @@ with the `Artist` class:
 
 ### `MP3Importer` class
 
-Build an `MP3Importer` class that parses a directory of files and sends the
+Build an `MP3Importer` class that parses a directory of files and sends the 
 filenames to a song class to create a library of music with artists that are
 unique. To do this, you'll need two methods: `Mp3Importer#files` and
 `MP3Importer#import`. Your `MP3Importer` class should also have a `path`
